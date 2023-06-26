@@ -20,9 +20,9 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('UserId')
+            ->on('Users')
             -> references('id')
-            -> nullOnDelete()
-            ->on('Users');
+            -> nullOnDelete();
         });
 
         
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('_companies');
+        Schema::dropIfExists('Companies');
     }
 };
