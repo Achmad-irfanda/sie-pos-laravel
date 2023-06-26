@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('company_users', function (Blueprint $table) {
-            $table->id();
+        Schema::create('CompanyUsers', function (Blueprint $table) {
+            $table->id('CompanyUsersId');
+            $table->unsignedBigInteger('CompanyId'); 
+            $table->unsignedBigInteger('UserId');
+            $table->enum('Role',['admin', 'kasir', 'kitchen']); 
+            $table->unsignedBigInteger('CompanyBranchId')->nullable(); 
             $table->timestamps();
         });
     }
